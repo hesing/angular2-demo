@@ -1,6 +1,6 @@
 import {Component, View, bootstrap} from "angular2/angular2";
 import {TodoInput} from "./TodoInput";
-
+import {todoService} from "./todoService";
 @Component({
 	selector: 'app'
 })
@@ -17,4 +17,4 @@ class App{
 
 }
 
-bootstrap(App);
+bootstrap(App, [todoService]);

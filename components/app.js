@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require("angular2/angular2");
 var TodoInput_1 = require("./TodoInput");
+var todoService_1 = require("./todoService");
 var App = (function () {
     function App() {
     }
@@ -26,5 +27,5 @@ var App = (function () {
     ], App);
     return App;
 })();
-angular2_1.bootstrap(App);
+angular2_1.bootstrap(App, [todoService_1.todoService]);
 //# sourceMappingURL=app.js.map
