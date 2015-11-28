@@ -13,12 +13,17 @@ var angular2_1 = require("angular2/angular2");
 var TodoInput = (function () {
     function TodoInput() {
     }
+    TodoInput.prototype.addTodo = function (input) {
+        console.log("clicked", input.value);
+        input.value = '';
+        input.focus();
+    };
     TodoInput = __decorate([
         angular2_1.Component({
             selector: 'todo-input'
         }),
         angular2_1.View({
-            template: "\n\t\t<h2> Add Todo </h2>\n\t\t<input type=\"text\" class=\"form-control\" />\n\t"
+            template: "\n\t\t<h2> Add Todo </h2>\n\t\t<form class=\"form-inline\" (submit)=\"addTodo(logMe)\">\t\t\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<input type=\"text\" class=\"form-control\" #log-me />\n\t\t\t</div>\n\t\t\t<button type=\"submit\" class=\"btn btn-default\">Add</button>\n\t\t</form>\n\t"
         }), 
         __metadata('design:paramtypes', [])
     ], TodoInput);
