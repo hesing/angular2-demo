@@ -1,6 +1,6 @@
 var todoService = (function () {
     function todoService() {
-        this.todos = [];
+        this.todos = ["Potato", "Tomato", "mango slicing"];
     }
     todoService.prototype.addTodo = function (value) {
         this.todos.push(value);

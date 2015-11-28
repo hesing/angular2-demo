@@ -10,23 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var TodoInput_1 = require("./TodoInput");
 var todoService_1 = require("./todoService");
-var todoList_1 = require("./todoList");
-var App = (function () {
-    function App() {
+var TodoList = (function () {
+    function TodoList(TodoService) {
+        this.TodoService = TodoService;
     }
-    App = __decorate([
+    TodoList = __decorate([
         angular2_1.Component({
-            selector: 'app'
+            selector: 'todo-list'
         }),
         angular2_1.View({
-            directives: [TodoInput_1.TodoInput, todoList_1.TodoList],
-            template: "\n\t\t<h1>I say Hello World</h1>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t<todo-input></todo-input>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t<todo-list><todo-list>\n\t\t\t</div>\n\t\t</div>\t\n\t"
+            template: "\n\t\t<h2>Todo List</h2>\n\t\t<ul class=\"list-group\">\n\t\t\t<li class=\"list-group-item\" *ng-for=\"#todo of TodoService.todos\">\n\t\t\t\t{{ todo }}\n\t\t\t</li>\n\t\t</ul>\n\t"
         }), 
-        __metadata('design:paramtypes', [])
-    ], App);
-    return App;
+        __metadata('design:paramtypes', [todoService_1.todoService])
+    ], TodoList);
+    return TodoList;
 })();
-angular2_1.bootstrap(App, [todoService_1.todoService]);
-//# sourceMappingURL=app.js.map
+exports.TodoList = TodoList;
+//# sourceMappingURL=todoList.js.map

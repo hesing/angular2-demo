@@ -1,5 +1,5 @@
 export class todoService{
-	todos:any[] = [];
+	todos:any[] = ["Potato", "Tomato", "mango slicing"];
 	addTodo(value){
 		this.todos.push(value);
 	}
