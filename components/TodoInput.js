@@ -15,18 +15,18 @@ var TodoInput = (function () {
     function TodoInput(TodoService) {
         this.TodoService = TodoService;
     }
-    TodoInput.prototype.addTodo = function (input) {
-        this.TodoService.addTodo(input.value);
-        input.value = '';
-        input.focus();
-        console.log(this.TodoService.todos);
+    TodoInput.prototype.addTodo = function () {
+        console.log(this.todoModel);
+        this.TodoService.addTodo(this.todoModel);
+        this.todoModel = '';
     };
     TodoInput = __decorate([
         angular2_1.Component({
             selector: 'todo-input'
         }),
         angular2_1.View({
-            template: "\n\t\t<h2> Add Todo </h2>\n\t\t<form class=\"form-inline\" (submit)=\"addTodo(logMe)\">\t\t\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<input type=\"text\" class=\"form-control\" #log-me />\n\t\t\t\t{{ TodoService.todos|json }}\n\t\t\t</div>\n\t\t\t<button type=\"button\" class=\"btn btn-default\">Add</button>\n\t\t</form>\n\t"
+            directives: [angular2_1.FORM_DIRECTIVES],
+            template: "\n\t\t<h2> Add Todo </h2>\n\t\t<form class=\"form-inline\" (ng-submit)=\"addTodo()\">\t\t\n\t\t\t<div class=\"form-group\">\n\t\t\t\t<input type=\"text\" class=\"form-control\" [(ng-model)]=\"todoModel\" />\n\t\t\t\t{{ todoModel }}\n\t\t\t</div>\n\t\t\t<button type=\"submit\" class=\"btn btn-default\">Add</button>\n\t\t</form>\n\t"
         }), 
         __metadata('design:paramtypes', [todoService_1.todoService])
     ], TodoInput);

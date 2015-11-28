@@ -1,4 +1,4 @@
-import {Component, View} from "angular2/angular2";
+import {Component, View, FORM_DIRECTIVES} from "angular2/angular2";
 import {todoService} from "./todoService";
 
 @Component({
@@ -6,27 +6,28 @@ import {todoService} from "./todoService";
 })
 
 @View({
+	directives: [FORM_DIRECTIVES],
 	template: `
 		<h2> Add Todo </h2>
-		<form class="form-inline" (submit)="addTodo(logMe)">		
+		<form class="form-inline" (ng-submit)="addTodo()">		
 			<div class="form-group">
-				<input type="text" class="form-control" #log-me />
-				{{ TodoService.todos|json }}
+				<input type="text" class="form-control" [(ng-model)]="todoModel" />
+				{{ todoModel }}
 			</div>
-			<button type="button" class="btn btn-default">Add</button>
+			<button type="submit" class="btn btn-default">Add</button>
 		</form>
 	`
 })
 
 export class TodoInput{
+	todoModel;
 	constructor(public TodoService:todoService){
 		
 	}
 
-	addTodo(input){
-		this.TodoService.addTodo(input.value);
-		input.value = '';
-		input.focus();
-		console.log(this.TodoService.todos);
+	addTodo(){
+		console.log(this.todoModel);
+		this.TodoService.addTodo(this.todoModel);
+		this.todoModel = '';
 	}
 }
