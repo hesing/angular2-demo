@@ -10,21 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var TodoInput_1 = require("./TodoInput");
-var App = (function () {
-    function App() {
+var TodoInput = (function () {
+    function TodoInput() {
     }
-    App = __decorate([
+    TodoInput = __decorate([
         angular2_1.Component({
-            selector: 'app'
+            selector: 'todo-input'
         }),
         angular2_1.View({
-            directives: [TodoInput_1.TodoInput],
-            template: "\n\t\t<h1>I say Hello World</h1>\n\t\t<todo-input></todo-input>\n\t"
+            template: "\n\t\t<h2> Add Todo </h2>\n\t\t<input type=\"text\" class=\"form-control\" />\n\t"
         }), 
         __metadata('design:paramtypes', [])
-    ], App);
-    return App;
+    ], TodoInput);
+    return TodoInput;
 })();
-angular2_1.bootstrap(App);
-//# sourceMappingURL=app.js.map
+exports.TodoInput = TodoInput;
+//# sourceMappingURL=TodoInput.js.map
