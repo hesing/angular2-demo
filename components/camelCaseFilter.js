@@ -10,23 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var todoService_1 = require("./todoService");
-var camelCaseFilter_1 = require("./camelCaseFilter");
-var TodoList = (function () {
-    function TodoList(TodoService) {
-        this.TodoService = TodoService;
+var CamelCase = (function () {
+    function CamelCase() {
     }
-    TodoList = __decorate([
-        angular2_1.Component({
-            selector: 'todo-list'
-        }),
-        angular2_1.View({
-            pipes: [camelCaseFilter_1.CamelCase],
-            template: "\n\t\t<h2>Todo List</h2>\n\t\t<ul class=\"list-group\">\n\t\t\t<li class=\"list-group-item\" *ng-for=\"#todo of TodoService.todos\">\n\t\t\t\t{{ todo | camelCase}}\n\t\t\t</li>\n\t\t</ul>\n\t"
+    CamelCase.prototype.transform = function (value, _a) {
+        var field = _a[0];
+        return value[0].toUpperCase() + value.slice(1).toLowerCase();
+    };
+    CamelCase = __decorate([
+        angular2_1.Pipe({
+            name: 'camelCase'
         }), 
-        __metadata('design:paramtypes', [todoService_1.todoService])
-    ], TodoList);
-    return TodoList;
+        __metadata('design:paramtypes', [])
+    ], CamelCase);
+    return CamelCase;
 })();
-exports.TodoList = TodoList;
-//# sourceMappingURL=todoList.js.map
+exports.CamelCase = CamelCase;
+//# sourceMappingURL=camelCaseFilter.js.map
