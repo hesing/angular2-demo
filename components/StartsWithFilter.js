@@ -10,22 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var App = (function () {
-    function App() {
-        this.letters = ['c', 'a', 'e', 'f', 'ok', 'not ok'];
-        this.selectedLetter = 'ok';
+var StartsWith = (function () {
+    function StartsWith() {
     }
-    App = __decorate([
-        angular2_1.Component({
-            selector: 'app'
-        }),
-        angular2_1.View({
-            template: "\n\t\t<h1>I say Hello World</h1>\n\t\t<div class=\"form-group\">\n\t\t    <label class=\"col-md-4 control-label\">Select Letter</label>\n\t\t    <div class=\"col-md-8\">\n\t\t        <select class=\"form-control\" [(ng-model)]=\"selectedLetter\">\n\t\t        \t<option *ng-for=\"#letter of letters\">{{ letter }}</option>\n\t\t        </select>\n\t\t\t</div>\n\t\t</div>\n\t"
+    StartsWith.prototype.transform = function (value, _a) {
+        var letter = _a[0];
+        return true;
+    };
+    StartsWith = __decorate([
+        angular2_1.Pipe({
+            name: 'startsWith'
         }), 
         __metadata('design:paramtypes', [])
-    ], App);
-    return App;
+    ], StartsWith);
+    return StartsWith;
 })();
-exports.App = App;
-angular2_1.bootstrap(App);
-//# sourceMappingURL=app.js.map
+exports.StartsWith = StartsWith;
+//# sourceMappingURL=StartsWithFilter.js.map

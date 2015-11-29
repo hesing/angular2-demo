@@ -10,22 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require("angular2/angular2");
-var App = (function () {
-    function App() {
-        this.letters = ['c', 'a', 'e', 'f', 'ok', 'not ok'];
-        this.selectedLetter = 'ok';
+var todoService_1 = require("./todoService");
+var camelCaseFilter_1 = require("./camelCaseFilter");
+var TodoList = (function () {
+    function TodoList(TodoService) {
+        this.TodoService = TodoService;
     }
-    App = __decorate([
+    TodoList = __decorate([
         angular2_1.Component({
-            selector: 'app'
+            selector: 'todo-list'
         }),
         angular2_1.View({
-            template: "\n\t\t<h1>I say Hello World</h1>\n\t\t<div class=\"form-group\">\n\t\t    <label class=\"col-md-4 control-label\">Select Letter</label>\n\t\t    <div class=\"col-md-8\">\n\t\t        <select class=\"form-control\" [(ng-model)]=\"selectedLetter\">\n\t\t        \t<option *ng-for=\"#letter of letters\">{{ letter }}</option>\n\t\t        </select>\n\t\t\t</div>\n\t\t</div>\n\t"
+            pipes: [camelCaseFilter_1.CamelCase],
+            template: "\n\t\t<h2>Todo List</h2>\n\t\t<ul class=\"list-group\">\n\t\t\t<li class=\"list-group-item\" *ng-for=\"#todo of TodoService.todos\">\n\t\t\t\t{{ todo | camelCase}}\n\t\t\t</li>\n\t\t</ul>\n\t"
         }), 
-        __metadata('design:paramtypes', [])
-    ], App);
-    return App;
+        __metadata('design:paramtypes', [(typeof (_a = typeof todoService_1.todoService !== 'undefined' && todoService_1.todoService) === 'function' && _a) || Object])
+    ], TodoList);
+    return TodoList;
+    var _a;
 })();
-exports.App = App;
-angular2_1.bootstrap(App);
-//# sourceMappingURL=app.js.map
+exports.TodoList = TodoList;
+//# sourceMappingURL=todoList.js.map
