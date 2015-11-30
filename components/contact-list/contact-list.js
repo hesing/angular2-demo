@@ -9,22 +9,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var angular2_1 = require("angular2/angular2");
-var contact_list_1 = require('./contact-list/contact-list');
-var App = (function () {
-    function App() {
+var angular2_1 = require('angular2/angular2');
+var contact_1 = require('./contact');
+var ContactList = (function () {
+    function ContactList() {
+        this.contacts = [];
     }
-    App = __decorate([
+    ContactList.prototype.addContact = function (name, phone) {
+        var contact = new contact_1.Contact(name, phone);
+        this.contacts.push(contact);
+    };
+    ContactList.prototype.removeContact = function (contact) {
+        var index = this.contacts.indexOf(contact);
+        this.contacts.splice(index, 1);
+    };
+    ContactList = __decorate([
         angular2_1.Component({
-            selector: 'app'
+            selector: 'contact-list'
         }),
         angular2_1.View({
-            directives: [contact_list_1.ContactList],
-            template: "\n\t\t<h1>I say Hello World</h1>\n\t\t<contact-list></contact-list>\n\t"
+            templateUrl: './components/contact-list/contact-list.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], App);
-    return App;
+    ], ContactList);
+    return ContactList;
 })();
-angular2_1.bootstrap(App);
-//# sourceMappingURL=app.js.map
+exports.ContactList = ContactList;
+//# sourceMappingURL=contact-list.js.map
