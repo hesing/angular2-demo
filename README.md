@@ -1,20 +1,26 @@
-# angular2-demo
-Angular 2 demo, ES5, Typescript
+# Angular 2 Quick Starter 
 
-## Setup with ES5
+![Angular 2 Demo](public/images/voting.png)
 
-```
-npm init -y
-npm install angular2 --save
-npm install live-server --save-dev
-npm start // http://127.0.0.1:8080/
-```
-
-## Setup with Typescript
+- updated to rc1
 
 ```
-npm init -y
-npm install angular2 systemjs --save
-npm install typescript live-server --save-dev
-npm start // http://127.0.0.1:8080/
-``` 
+Angular 2
+Bootstrap 4
+Custom Theming in place
+Gulp
+Sass
+System JS
+Typescript
+```
+
+## Start Application
+
+```
+gulp
+http://localhost:8080/build/
+```
+
+**Note**
+
+All development changes should be done inside `public` folder 
