@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {SharedService} from '../shared/shared.service';
 
 @Component({
     selector: 'navbar',
@@ -9,15 +8,11 @@ import {SharedService} from '../shared/shared.service';
 export class NavbarComponent {
     toggled: boolean = false;
     
-    constructor( private _sharedService: SharedService) { }
+    constructor() { }
     
-    // ngOnInit(): any {
-    //     this.toggled = this._sharedService.toggleSidebar();
-    // }
     
     toggleSidebar(){
         this.toggled = !this.toggled;
         console.log(this.toggled);
-        this._sharedService.toggleSidebar(this.toggled);
     }
 }
